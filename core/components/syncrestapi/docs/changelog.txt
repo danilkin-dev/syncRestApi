@@ -1,0 +1,5 @@
+Changelog for syncRestApi.
+
+1.0.0-beta
+==============
+- Первый релиз

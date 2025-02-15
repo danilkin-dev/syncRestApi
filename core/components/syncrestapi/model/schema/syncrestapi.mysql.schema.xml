@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="syncrestapi" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="syncrestapi"
+       version="1.1">
+
+    <object class="syncRestApiObject" table="syncrestapi_objects" extends="xPDOSimpleObject">
+        <field key="sync_id" dbtype="varchar" precision="255" phptype="string" null="false" default="" index="index"/>
+        <field key="sync_type" dbtype="varchar" precision="50" phptype="string" null="false" default="" index="index"/>
+        <field key="sync_parent" dbtype="varchar" precision="255" phptype="string" null="false" default="" index="index"/>
+        <field key="sync_resource" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="" index="index"/>
+        <field key="sync_data" dbtype="text" phptype="array" null="true" />
+        <field key="sync_active" dbtype="tinyint" precision="1" attributes="unsigned" phptype="boolean" null="true" default="0"/>
+        <field key="sync_datetime" dbtype="datetime" phptype="datetime" null="true" />
+        
+        <index alias="sync_id" name="sync_id" primary="false" unique="false" type="BTREE">
+			<column key="sync_id" length="" collation="A" null="false"/>
+		</index>
+		<index alias="sync_type" name="sync_type" primary="false" unique="false" type="BTREE">
+			<column key="sync_type" length="" collation="A" null="false"/>
+		</index>
+        <index alias="sync_parent" name="sync_parent" primary="false" unique="false" type="BTREE">
+			<column key="sync_parent" length="" collation="A" null="false"/>
+		</index>
+		<index alias="sync_resource" name="sync_resource" primary="false" unique="false" type="BTREE">
+			<column key="sync_resource" length="" collation="A" null="false"/>
+		</index>
+		<index alias="sync_active" name="sync_active" primary="false" unique="false" type="BTREE">
+            <column key="sync_active" length="" collation="A" null="false"/>
+        </index>
+    </object>
+
+</model>
