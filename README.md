@@ -1,34 +1,34 @@
-## Quick start
+## Описание
 
-* Install MODX Revolution
+Заготовка для интеграции сайта на MODX Revolution с внешними сервисами через REST API
 
-* Upload this package into the `Extras` directory in the root of site
+## Быстрый старт
 
-* You need to rename it to `anyOtherName` your package, so enter into SSH console and run
+* Установите MODX Revolution
+
+* Загрузите этот пакет в каталог `Extras` в корне сайта
+
+* Вам нужно переименовать его в `anyOtherName`, поэтому войдите в SSH-консоль и выполните команду:
 ```
 php ~/www/Extras/syncRestApi/rename_it.php anyOtherName
 ```
-*path on your site may differs*
+*Путь на вашем сайте может отличаться*
 
-* Then install it on dev site
+* Затем установите его на dev-сайт
 ```
 php ~/www/Extras/anyOtherName/_build/build.php
 ``` 
 
-## Settings
+## Настройки
 
-See `_build/config.inc.php` for editable package options.
+Смотрите файл `_build/config.inc.php` для редактирования параметров пакета.
 
-All resolvers and elements are in `_build` path. All files that begins not from `.` or `_` will be added automatically. 
+Все резолверы и элементы находятся в каталоге `_build`. Все файлы, имена которых не начинаются с `.` или `_`, будут добавлены автоматически.
 
-If you will add a new type of element, you will need to add the method with that name into `build.php` script as well.
+Если вы добавите новый тип элемента, вам нужно будет также добавить метод с этим именем в скрипт `build.php`.
 
-## Build and download
+## Сборка и загрузка
 
-You can build package at any time by opening `http://dev.site.com/Extras/anyOtherName/_build/build.php`
+Вы можете собрать пакет в любое время, открыв `http://dev.site.com/Extras/anyOtherName/_build/build.php`
 
-If you want to download built package - just add `?download=1` to the address.
-
-## Example deploy settings
-
-[![](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6s.jpg)](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6.png) [![](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4s.jpg)](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4.png)
+Если вы хотите загрузить собранный пакет, просто добавьте `?download=1` к адресу.
