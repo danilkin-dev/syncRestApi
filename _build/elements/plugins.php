@@ -5,7 +5,7 @@ return [
         'file' => 'syncrestapi',
         'description' => '',
         'events' => [
-            'OnManagerPageInit' => [],
+            'OnBeforeEmptyTrash' => [],
         ],
     ],
 ];
