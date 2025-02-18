@@ -32,9 +32,9 @@ class syncRestApiImport
         return $this->modx->getValue($query->prepare()) ? true : false;
     }
     
-    public function getResourceParent($syncParent = 0)
+    public function getResourceParent($syncParent = '')
     {
-        if ($syncParent == 0 || empty($syncParent)) return $this->syncRestApi->getOption('sync_parent');
+        if (empty($syncParent)) return $this->syncRestApi->getOption('sync_parent');
         
         $query = $this->modx->newQuery($this->syncRestApi->syncObject);
         $query->leftJoin('modResource', 'modResource', $this->syncRestApi->syncObject . '.sync_resource = modResource.id');
@@ -60,7 +60,7 @@ class syncRestApiImport
         if (!$this->syncRestApi->getOption('category_process_on_create') || !$object->get('sync_active')) return;
         
         $data = $object->get('sync_data');
-        $parent = $this->getResourceParent($object->get('sync_parent'));
+        $parent = $this->getResourceParent($object->get('sync_parent') ?? '');
         $template = $this->syncRestApi->getOption('category_template', [], $this->modx->getOption('ms2_template_category_default'));
         $published = $this->syncRestApi->getOption('category_published');
         $hideMenu = $this->modx->getOption('hidemenu_default');
@@ -124,7 +124,7 @@ class syncRestApiImport
         if (!$this->syncRestApi->getOption('product_process_on_create') || !$object->get('sync_active')) return;
         
         $data = $object->get('sync_data');
-        $parent = $this->getResourceParent($object->get('sync_parent'));
+        $parent = $this->getResourceParent($object->get('sync_parent') ?? '');
         $template = $this->syncRestApi->getOption('product_template', [], $this->modx->getOption('ms2_template_product_default'));
         $published = $this->syncRestApi->getOption('product_published');
         $hideMenu = $this->modx->getOption('hidemenu_default');
