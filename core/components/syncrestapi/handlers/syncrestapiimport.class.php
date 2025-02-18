@@ -36,9 +36,9 @@ class syncRestApiImport
     {
         if ($syncParent == 0 || empty($syncParent)) return $this->syncRestApi->getOption('sync_parent');
         
-        $query = $this->modx->newQuery($this->syncObject);
-        $query->leftJoin('modResource', 'modResource', $this->syncObject . '.sync_resource = modResource.id');
-        $query->where([$this->syncObject . '.sync_id' => $syncParent]);
+        $query = $this->modx->newQuery($this->syncRestApi->syncObject);
+        $query->leftJoin('modResource', 'modResource', $this->syncRestApi->syncObject . '.sync_resource = modResource.id');
+        $query->where([$this->syncRestApi->syncObject . '.sync_id' => $syncParent]);
         $query->select(['modResource.id']);
         return $this->modx->getValue($query->prepare());
     }
